@@ -2,6 +2,7 @@
 
 import CodeMirror from "@uiw/react-codemirror"
 import { javascript } from "@codemirror/lang-javascript"
+import { githubLight } from "@uiw/codemirror-theme-github";
 
 export default function Editor({
   code = "",
@@ -16,6 +17,8 @@ export default function Editor({
       height="100%"
       extensions={[javascript({ jsx: true })]}
       onChange={(value) => setCode(value)}
+      theme={githubLight}
+      className="border"
     />
   );
 }
