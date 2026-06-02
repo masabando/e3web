@@ -2,12 +2,12 @@
 import { createContext, useContext } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, googleProvider } from "@/firebase";
-import { signInWithPopup, signOut, User } from "firebase/auth";
+import { signInWithPopup, signOut, User, UserCredential } from "firebase/auth";
 
 type AuthContextType = {
   user: User | null | undefined;
   loading: boolean;
-  signIn: () => Promise<void>;
+  signIn: () => Promise<UserCredential>;
   signOut: () => Promise<void>;
 };
 
@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => signOut(auth);
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, logout }}>
+    <AuthContext.Provider value={{ user, loading, signIn: login, signOut: logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Menu from "@/components/Menu";
+import { AuthProvider } from "./providers";
 
 export const metadata: Metadata = {
   title: "e3web",
@@ -18,8 +19,10 @@ export default function RootLayout({
       className="h-full antialiased"
     >
       <body className="min-h-full flex flex-col">
-        <Menu />
-        {children}
+        <AuthProvider>
+          <Menu />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
