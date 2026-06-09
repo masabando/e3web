@@ -25,14 +25,11 @@ export type Sketch = {
 export const useSketches = () => {
   const { user } = useAuth();
   const [sketches, setSketches] = useState<Sketch[]>([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user) {
       return;
     }
-
-    setLoading(true);
 
     const q = query(
       collection(getFirestoreInstance(), "users", user.uid, "sketches"),
@@ -48,7 +45,6 @@ export const useSketches = () => {
           updatedAt: doc.data().updatedAt?.toDate(),
         })) as Sketch[]
       );
-      setLoading(false);
     });
 
     return () => unsubscribe();
@@ -78,5 +74,5 @@ export const useSketches = () => {
     await deleteDoc(doc(getFirestoreInstance(), "users", user.uid, "sketches", id));
   };
 
-  return { sketches, loading, saveSketch, updateSketch, deleteSketch };
+  return { sketches, saveSketch, updateSketch, deleteSketch };
 };
