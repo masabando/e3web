@@ -2,6 +2,8 @@
 import { useRef } from "react";
 import { simple, ocean } from "@/presets/basic";
 import { clock } from "@/presets/advanced";
+import { useContext } from "react";
+import { AuthContext } from "@/app/providers";
 
 const presets = [
   simple, ocean, clock
@@ -9,10 +11,13 @@ const presets = [
 
 export default function Presets({
   setCode,
+  setTitle
 }: Readonly<{
-  setCode: React.Dispatch<React.SetStateAction<string>>;
+  setCode: (code: string) => void;
+  setTitle: (title: string) => void;
 }>) {
   const ref = useRef<HTMLDialogElement>(null);
+  const { setCurrentSketch } = useContext(AuthContext);
   return (
     <>
       <button className="btn btn-primary" onClick={() => {
@@ -46,6 +51,8 @@ export default function Presets({
                       className="btn btn-sm btn-secondary"
                       onClick={() => {
                         setCode(preset.code);
+                        setTitle(preset.description);
+                        setCurrentSketch(null);
                         if (ref.current) {
                           ref.current.close();
                         }

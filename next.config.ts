@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["bmini.local", "mair.local"],
   output: "export",
   trailingSlash: true,
+  reactStrictMode: false,
   images: {
     unoptimized: true,
   }
