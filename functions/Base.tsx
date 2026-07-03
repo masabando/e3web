@@ -29,7 +29,7 @@ export function createPreviewHtml(code: string) {
       "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js",
       "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.178.0/examples/jsm/",
       "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3/lib/three-vrm.module.min.js",
-      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@1.11.8/dist/easy-three.js"
+      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@1.13.1/dist/easy-three.js"
     }
   }
   </script>
