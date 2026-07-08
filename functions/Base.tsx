@@ -1,3 +1,5 @@
+import { config } from "../config";
+
 export function createPreviewHtml(code: string) {
   const encodedCode = encodeURIComponent(code);
   return `<!DOCTYPE html>
@@ -26,10 +28,10 @@ export function createPreviewHtml(code: string) {
   <script type="importmap">
   {
     "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.178.0/examples/jsm/",
+      "three": "https://cdn.jsdelivr.net/npm/three@${config.three.version}/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@${config.three.version}/examples/jsm/",
       "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3/lib/three-vrm.module.min.js",
-      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@1.13.1/dist/easy-three.js"
+      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@${config.easyThree.version}/dist/easy-three.js"
     }
   }
   </script>
