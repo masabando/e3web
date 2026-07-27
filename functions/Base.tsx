@@ -31,7 +31,9 @@ export function createPreviewHtml(code: string) {
       "three": "https://cdn.jsdelivr.net/npm/three@${config.three.version}/build/three.module.js",
       "three/addons/": "https://cdn.jsdelivr.net/npm/three@${config.three.version}/examples/jsm/",
       "@pixiv/three-vrm": "https://cdn.jsdelivr.net/npm/@pixiv/three-vrm@3/lib/three-vrm.module.min.js",
-      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@${config.easyThree.version}/dist/easy-three.js"
+      "@masabando/easy-three": "https://cdn.jsdelivr.net/gh/masabando/easy-three@${config.easyThree.version}/dist/easy-three.js",
+      "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.9.10/build/index.module.js",
+      "three-bvh-csg": "https://cdn.jsdelivr.net/npm/three-bvh-csg@0.0.18/build/index.module.js"
     }
   }
   </script>
